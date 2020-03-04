@@ -20,4 +20,4 @@ Some ideas for projects that I want to work on in the future and topics that I w
 * Try out React Native as an alternative to Flutter
 * PyTorch
 * Blazor - Interactive web UIs using C#
-    * https://docs.microsoft.com/en-us/aspnet/core/tutorials/build-your-first-blazor-app?view=aspnetcore-3.1
+    * [Microsoft tutorial](https://docs.microsoft.com/en-us/aspnet/core/tutorials/build-your-first-blazor-app?view=aspnetcore-3.1)
