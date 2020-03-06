@@ -146,7 +146,3 @@ At last, we override the dispose function to also dispose our _bloc streams:
 ```
 
 In order to use the bloc pattern, we don't need to do all of this manually every time, we can use the bloc library.
-
-## Bloc Library
-
-[Youtube Tutorial](https://www.youtube.com/watch?v=nQMfaQeCL6M)
