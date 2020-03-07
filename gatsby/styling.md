@@ -117,11 +117,7 @@ const User = props => (
   )
 
 export default () => (
-```
 
-So here we created the User component and now we can use it inside the same file:
-
-```js
 <Container>
   <h1>About CSS Modules</h1>
   <p>CSS Modules are cool</p>
@@ -136,6 +132,8 @@ So here we created the User component and now we can use it inside the same file
     excerpt="I'm Bob Smith, a vertically aligned type of guy. Lorem ipsum dolor sit amet, consectetur adipisicing elit."
   />
 </Container>
+
+)
 ```
 
 Stopped at [Part Three](https://www.gatsbyjs.org/tutorial/part-three/).
