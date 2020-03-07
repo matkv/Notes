@@ -95,6 +95,21 @@ Let's say we have a css file with multiple classes:
   height: 96px;
   margin: 0;
 }
+
+.description {
+  flex: 1;
+  margin-left: 18px;
+  padding: 12px;
+}
+
+.username {
+  margin: 0 0 12px 0;
+  padding: 0;
+}
+
+.excerpt {
+  margin: 0;
+}
 ```
 
 Using this file as a module will guarantee that Gatsby will create unique class names for each of the classes in the file - they are guaranteed to be unique across the site.
