@@ -95,6 +95,21 @@ Let's say we have a css file with multiple classes:
   height: 96px;
   margin: 0;
 }
+
+.description {
+  flex: 1;
+  margin-left: 18px;
+  padding: 12px;
+}
+
+.username {
+  margin: 0 0 12px 0;
+  padding: 0;
+}
+
+.excerpt {
+  margin: 0;
+}
 ```
 
 Using this file as a module will guarantee that Gatsby will create unique class names for each of the classes in the file - they are guaranteed to be unique across the site.
@@ -117,11 +132,7 @@ const User = props => (
   )
 
 export default () => (
-```
 
-So here we created the User component and now we can use it inside the same file:
-
-```js
 <Container>
   <h1>About CSS Modules</h1>
   <p>CSS Modules are cool</p>
@@ -136,6 +147,8 @@ So here we created the User component and now we can use it inside the same file
     excerpt="I'm Bob Smith, a vertically aligned type of guy. Lorem ipsum dolor sit amet, consectetur adipisicing elit."
   />
 </Container>
+
+)
 ```
 
 Stopped at [Part Three](https://www.gatsbyjs.org/tutorial/part-three/).
