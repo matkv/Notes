@@ -18,7 +18,7 @@ It makes it possible to:
 * record every single user interaction
 * work efficiently and reuse components
 
-Bloc attempts to make state changes predictable by regulating when a state change can occur and enforcing a single way to change state throughout an entire application.
+Bloc attempts to make state changes predictable by **regulating when a state change can occur** and **enforcing a single way to change state** throughout an entire application.
 
 ## Installation
 
@@ -40,8 +40,6 @@ import 'package:bloc/bloc.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 ```
 
-
-
 ## Core concepts
 
 ### Events
@@ -57,3 +55,31 @@ enum CounterEvent { increment, decrement }
 ```
 
 Here we represent the events using an ```enum```, in more complex cases it might be necessary to use a ```class``` - especially if it's necessary to pass information to the bloc.
+
+### States
+
+States are the **input** to a bloc - they represent part of our applications state. UI components can be **notified** of states and redraw themselves based on the current state.
+
+In the counter example, the state could for example simply be an integer representing the counter's current value.
+
+### Transitions
+
+A transition is the **change from one state to another.** A transition consists of:
+
+* The current state
+* The event
+* The next state
+
+For example, if a user opened the counter example app and tapped the increment button, we would see the following transition:
+
+```dart
+{
+  "currentState": 0,
+  "event": "CounterEvent.increment",
+  "nextState": 1
+}
+```
+
+Every state change is recorded, so we are able to easly track all user interactions & state changes in one place.
+
+In addition, this makes things like [time travel debugging](https://en.wikipedia.org/wiki/Time_travel_debugging) possible.
