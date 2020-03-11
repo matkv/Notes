@@ -83,3 +83,50 @@ For example, if a user opened the counter example app and tapped the increment b
 Every state change is recorded, so we are able to easly track all user interactions & state changes in one place.
 
 In addition, this makes things like [time travel debugging](https://en.wikipedia.org/wiki/Time_travel_debugging) possible.
+
+### Streams
+
+A stream is a sequence of asynchronous data. One way to think about it is that the stream is a pipe with water flowing through it and the water is the asynchronous data.
+
+Creating a stream by writing an ```async*``` function:
+
+```dart
+Stream<int> countStream(int max) async* {
+  for (int i = 0; i < max; i++>){
+    yield i;
+  }
+}
+```
+
+By marking it as ```async*``` we can use the ```yield``` keyword and return a Stream of data. In that example, we return a Stream of integers.
+
+Every time we ```yield``` in an async function we are **pushing that piece of data through the stream**.
+
+We can receive the data from a stream like this:
+
+```dart
+Future<int> sumStream(Stream<int> stream) async {
+  int sum = 0;
+  await for (int value in stream){
+    sum += value;
+  }
+  return sum;
+}
+```
+
+By using an ```async``` function we can ```await``` a ```Future``` of integers.
+
+Here is an example of these functions in use:
+
+```dart
+void main() async {
+    /// Initialize a stream of integers 0-9
+    Stream<int> stream = countStream(10);
+
+    /// Compute the sum of the stream of integers
+    int sum = await sumStream(stream);
+    
+    /// Print the sum
+    print(sum); // 45
+}
+```
