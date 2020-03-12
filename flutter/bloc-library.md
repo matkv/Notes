@@ -130,3 +130,133 @@ void main() async {
     print(sum); // 45
 }
 ```
+
+### Blocs
+
+A **Bloc** - Business Logic Component - is a component which **converts a stream of incoming events** into a **stream of outgoing States**.
+
+Every bloc must extends the base ```Bloc``` class which is part of the core bloc package.
+
+```dart
+import 'package:bloc/bloc.dart';
+
+class CounterBloc extends Bloc<CounterEvent, int> {
+
+}
+```
+
+We are declaring a bloc which converts ```CounterEvents``` into ```int```s.
+
+**Every bloc must define an initial state which is the state before any events have been received**.
+
+We will set the initial state of the bloc to the value 0.
+
+```dart
+@override
+int get initialState => 0;
+```
+
+#### mapEventToState
+
+Every Bloc must implement a function called ```mapEventToState```. The function takes the incoming ```event``` as an argument and must return a ```Stream``` of new ```states``` which is consumed by the presentation layer.
+
+We can acess the current bloc state at any time using the ```state``` property.
+
+By adding this function, we have a fully functioning ```CounterBloc```.
+
+```dart
+import 'package:bloc/bloc.dart';
+
+enum CounterEvent { increment, decrement }
+
+class CounterBloc extends Bloc<CounterEvent, int> {
+  @override
+  int get initialState => 0;
+
+  @override
+  Stream<int> mapEventToState(CounterEvent event) async* {
+    switch (event) {
+      case CounterEvent.decrement:
+        yield state - 1;
+        break;
+      case CounterEvent.increment:
+        yield state + 1;
+        break;
+    }
+  }
+}
+```
+
+Blocs will ignore duplicate states. If a Bloc yiels ```State nextState``` where ```state == nextState``` - then now transition will occur and no change will be made to the ```Stream<State>```.
+
+#### How to notify a Bloc of an event?
+
+Every bloc has an ```add``` method. ```Add``` takes an event and triggers mapEventToState.
+
+```Add``` may be called **from the presentation layer** or **from within the bloc** and notifies the Bloc of a new ```event```.
+
+Here's a small application which counts from 0 to 3.
+
+```dart
+void main() {
+    CounterBloc bloc = CounterBloc();
+
+    for (int i = 0; i < 3; i++) {
+        bloc.add(CounterEvent.increment);
+    }
+}
+```
+
+The events will be processed in the order in which they were added. Newly added events are enqueued.
+
+An event is considered fully processed **once mapEventToState** has finished executing.
+
+#### Printing Transitions
+
+The ```Transitions``` in this small application would be:
+
+```dart
+{
+    "currentState": 0,
+    "event": "CounterEvent.increment",
+    "nextState": 1
+}
+{
+    "currentState": 1,
+    "event": "CounterEvent.increment",
+    "nextState": 2
+}
+{
+    "currentState": 2,
+    "event": "CounterEvent.increment",
+    "nextState": 3
+}
+```
+
+We wouldn't be able to see these transitions unless we override ```onTransition```. This method can be overriden to handle every local bloc transition. ```onTransition``` is called **just before a Bloc's state has been updated**.
+
+```onTransition``` is a **great place to add bloc-specific logging**.
+
+```dart
+@override
+void onTransition(Transition<CounterEvent, int> transition) {
+    print(transition);
+}
+```
+
+#### Handling errors
+
+We can also handle ```Exceptions``` at the bloc level.
+
+```onError``` is a method that can be overriden to handle every local ```Bloc Exception```. By default **all exceptions will be ignored** and Bloc functionality will be unaffected,
+
+```onError``` is a **great place to add bloc-specific error handling**.
+
+By overriding ```onError``` we can do whatever we'd like whenever an ```Exception``` is thrown.
+
+```dart
+@override
+void onError(Object error, StackTrace stackTrace) {
+  print('$error, $stackTrace');
+}
+```
