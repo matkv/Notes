@@ -260,3 +260,60 @@ void onError(Object error, StackTrace stackTrace) {
   print('$error, $stackTrace');
 }
 ```
+
+### BlocDelegate
+
+In larger applications, it is fairly common to have many Blocs managing different parts of the application's state.
+
+If we want to be able to do something in response to **all** ```Transitions``` we can simply create our own ```BlocDelegate```.
+
+```dart
+class SimpleBlocDelegate extends BlocDelegate {
+  @override
+  void onTransition(Bloc bloc, Transition transition){
+    super.onTransition(bloc, transitiion);
+
+    print(transition);
+  }
+}
+```
+
+Here we extend ```BlocDelegate``` and override the ```onTransition``` method. Now we need to tell Bloc to use our ```SimpleBlocDelegate``` - we just need to set the ```BlocSupervisor.delegate``` to our custom delegate.
+
+```dart
+void main() {
+  BlocSupervisor.delegate = SimpleBlocDelegate();
+  CounterBloc bloc = CounterBloc();
+
+  for (int i = 0; i < 3; i++) {
+    bloc.add(CounterEvent.increment);
+  }
+}
+```
+
+```BlocSupervisor``` is a singleton which oversees all Blocs and delegates responsibilites to the ```BlocDelegate```.
+
+
+By overriding the ```onEvent``` method in our ```SimpleBlocDelegate``` we can do something wheneber any event is added, by overriding ```onError``` we can respond to all Exceptions thrown in a Bloc.
+
+```dart
+class SimpleBlocDelegate extends BlocDelegate {
+  @override
+  void onEvent(Bloc bloc, Object event) {
+    super.onEvent(bloc, event);
+    print(event);
+  }
+
+  @override
+  void onTransition(Bloc bloc, Transition transition) {
+    super.onTransition(bloc, transition);
+    print(transition);
+  }
+
+  @override
+  void onError(Bloc bloc, Object error, StackTrace stacktrace) {
+    super.onError(bloc, error, stacktrace);
+    print('$error, $stacktrace');
+  }
+}
+```
