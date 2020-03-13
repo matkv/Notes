@@ -22,3 +22,6 @@ Some ideas for projects that I want to work on in the future and topics that I w
 * Blazor - Interactive web UIs using C#
     * [Microsoft tutorial](https://docs.microsoft.com/en-us/aspnet/core/tutorials/build-your-first-blazor-app?view=aspnetcore-3.1)
 * Trying out PyQT - Python GUI Apps
+* Creating a local Kanban program or app
+    * C# / WinForms
+    * Flutter Desktop?  
