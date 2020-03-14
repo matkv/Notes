@@ -82,3 +82,170 @@ context.bloc<BlocA>();
 //without extensions
 BlocProvider.of<BlocA>(context)
 ```
+
+### MultiBlocProvider
+
+```MultiBlocProvider``` merges multiple ```BlocProvider``` into one. It eliminates the need to nest multple ```BlocProviders```.
+
+```dart
+MultiBlocProvider(
+  providers: [
+    BlocProvider<BlocA>(
+      create: (BuildContext context) => BlocA(),
+    ),
+    BlocProvider<BlocB>(
+      create: (BuildContext context) => BlocB(),
+    ),
+    BlocProvider<BlocC>(
+      create: (BuildContext context) => BlocC(),
+    ),
+  ],
+  child: ChildA(),
+)
+```
+
+### BlocListener
+
+```BlocListener``` is a Flutter widget which takes a BlocWidgetListener and an optional Bloc and invokes the listener in response to state changes in the bloc.
+
+It should be used for functionality that **needs to occur once per state change**, such as navigation, showing a ```SnackBar``` or a dialog.
+
+```listener``` is only called once for each state change and is a void function. If the ```bloc``` parameter is omitted, BlocListener will automatically perform a lookup using BlocProvider and the current BuildContext.
+
+```dart
+BlocListener<BlocA, BlocAState>(
+  listener: (context, state) {
+    // do stuff here based on BlocA's state
+  },
+  child: Container(),
+)
+```
+
+If we wish to provide a bloc that is otherwise not accessible via BlocProvider:
+
+```dart
+BlocListener<BlocA, BlocAState>(
+  bloc: blocA,
+  listener: (context, state) {
+    // do stuff here based on BlocA's state
+  }
+)
+```
+
+And we can also only call the listener function based on a condition:
+
+```dart
+BlocListener<BlocA, BlocAState>(
+  condition: (previousState, state) {
+    // return true/false to determine whether or not
+    // to call listener with state
+  },
+  listener: (context, state) {
+    // do stuff here based on BlocA's state
+  }
+  child: Container(),
+)
+```
+
+### MultiBlocListener
+
+```MultiBlocListener``` merges multiple BlocListener widgets into one:
+
+```dart
+MultiBlocListener(
+  listeners: [
+    BlocListener<BlocA, BlocAState>(
+      listener: (context, state) {},
+    ),
+    BlocListener<BlocB, BlocBState>(
+      listener: (context, state) {},
+    ),
+    BlocListener<BlocC, BlocCState>(
+      listener: (context, state) {},
+    ),
+  ],
+  child: ChildA(),
+)
+```
+
+### BlocConsumer
+
+```BlocConsumer``` is analogous to a nested BlocListener or BlocBuilder but reduces the amount of boilerplate needed.
+
+It should only be used when **it is necessary to both rebuild UI and execute other reactions to state changes in the bloc**.
+
+```dart
+BlocConsumer<BlocA, BlocAState>(
+  listener: (context, state) {
+    // do stuff here based on BlocA's state
+  },
+  builder: (context, state) {
+    // return widget here based on BlocA's state
+  }
+)
+```
+
+For more control over when ```listener``` and ```builder``` are called, there are ```listenWhen``` and ```buildWhen```.
+
+```dart
+BlocConsumer<BlocA, BlocAState>(
+  listenWhen: (previous, current) {
+    // return true/false to determine whether or not
+    // to invoke listener with state
+  },
+  listener: (context, state) {
+    // do stuff here based on BlocA's state
+  },
+  buildWhen: (previous, current) {
+    // return true/false to determine whether or not
+    // to rebuild the widget with state
+  },
+  builder: (context, state) {
+    // return widget here based on BlocA's state
+  }
+)
+```
+
+### RepositoryProvider
+
+```RepositoryProvider``` is a Flutter widget which provides a repository to its children. A single instance of a repository can be provided to multiple widgets. BlocProvider should be used for blocs, RepositoryProvider should be used for repositories.
+
+```dart
+RepositoryProvider(
+  builder: (context) => RepositoryA(),
+  child: ChildA(),
+);
+
+```
+
+From ```ChildA```, we can then retriebe the Repostory instance:
+
+```dart
+// with extensions
+context.repository<RepositoryA>();
+
+// without extensions
+RepositoryProvider.of<RepositoryA>(context)
+
+```
+
+### MultiRepositoryProvider
+
+```MultiRepositoryProvider``` merges multiple RepositoryProvider into one:
+
+```dart
+MultiRepositoryProvider(
+  providers: [
+    RepositoryProvider<RepositoryA>(
+      builder: (context) => RepositoryA(),
+    ),
+    RepositoryProvider<RepositoryB>(
+      builder: (context) => RepositoryB(),
+    ),
+    RepositoryProvider<RepositoryC>(
+      builder: (context) => RepositoryC(),
+    ),
+  ],
+  child: ChildA(),
+)
+```

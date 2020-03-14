@@ -16,3 +16,5 @@
 * flutter_bloc
     * BlocBuilder: Flutter widget which requres a **Bloc** and a **builder** function
     * BlocProvider: Flutter widget which provides a bloc to its children. A single instance of a bloc can be provided to multiple widgets.
+    * MultiBlocProvider: merges multiple BlocProvider into one.
+    * BlocListener: invokes listener in response to state changes - used for functionality that **needs to occur once per state change**
