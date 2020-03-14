@@ -58,7 +58,7 @@ Here we represent the events using an ```enum```, in more complex cases it might
 
 ### States
 
-States are the **input** to a bloc - they represent part of our applications state. UI components can be **notified** of states and redraw themselves based on the current state.
+States are the **output** of a bloc - they represent part of our applications state. UI components can be **notified** of states and redraw themselves based on the current state.
 
 In the counter example, the state could for example simply be an integer representing the counter's current value.
 
