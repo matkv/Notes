@@ -70,3 +70,5 @@ class CounterPage extends StatelessWidget {
   }
 }
 ```
+
+The ```CounterPage``` doesn't know anything about what happens when a user taps the button, it simply tells the ```CounterBloc``` has pressed either the increment or decrement button.
