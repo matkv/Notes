@@ -317,3 +317,24 @@ class SimpleBlocDelegate extends BlocDelegate {
   }
 }
 ```
+
+## Naming Conventions
+
+### Events
+Events should be names in past tense:
+
+BlocSubject + Noun (optional) + Verb (event)
+
+Examples:
+
+CounterStarted CounterIncremented CounterDecremented CounterIncrementRetried
+
+### States
+
+States should be nouns:
+
+BlocSubject + Verb (action) + State
+
+Examples:
+
+CounterInitial CounterLoadInProgress CounterLoadSuccess CounterLoadFailure
