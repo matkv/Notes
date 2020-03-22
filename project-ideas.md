@@ -28,3 +28,4 @@ Some ideas for projects that I want to work on in the future and topics that I w
 * Try out [Thinc AI](https://thinc.ai/)
 * Program that saves Snapchat images correctly with exif data for Google Photos
 * Program that gets a random book from my Goodreads "To Read" list
+* Try out [Go](https://golang.org/)
