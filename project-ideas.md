@@ -29,3 +29,4 @@ Some ideas for projects that I want to work on in the future and topics that I w
 * Program that saves Snapchat images correctly with exif data for Google Photos
 * Program that gets a random book from my Goodreads "To Read" list
 * Try out [Go](https://golang.org/)
+* Command line program which opens markdown files from github repo as PDF
