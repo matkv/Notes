@@ -182,4 +182,85 @@ MultiBlocProvider(
 
 ### BlocBuilder
 
-[Stopped at 20:09](https://www.youtube.com/watch?v=knMvKPKBzGE)
+Helps rebuilding widgets in response to changes in the state of the bloc.
+
+```dart
+BlocBuilder<MyBloc, MyState>(
+    bloc: BlocProvider.of<MyBloc>(context),
+    builder: (BuildContext context, MyState state){
+        //return widget based on MyState
+    }
+)
+```
+
+### BlocListener
+
+Handles doing "stuff" in response to state changes. Whenever we want to react to changes of the state of our bloc but **not** build a new widget, but instead show for example a snackbar, we use ```BlocListener```.
+
+```dart 
+BlocListener<MyBloc, MyState>(
+    listener: (BuildContext context, MyState state){
+        //do stuff in response to state changes
+    }
+    child: ChildWidget(),
+)
+```
+
+### BlocConsumer
+
+This is great for cases where we want to both render some UI and do "side effects" like snackbars.
+
+```dart
+BlocConsumer<MyBloc, MyState>(
+    listener: (BuildContext context, MyState state){
+        //do stuff in response to new states
+    },
+    builder: (BuildContext context, MyState state){
+        //return widgets in response to new states
+    },
+)
+```
+
+### onEvent
+
+Can be overriden in any Bloc - happens whenever an event is added to a bloc.
+
+```dart
+@override
+void onEvent(CounterEvent event){
+    super.onEvent(event);
+    print('onEvent $event);
+}
+```
+
+### onTransition
+
+Happens anytime a state change happens in the bloc.
+
+```dart
+@override
+void onTransition(Transition<CounterEvent event, int> transition){
+    super.onTransition(transition);
+    print('onTransition $transition);
+}
+```
+
+### onError
+
+Invoked when errors are thrown within a bloc.
+
+```dart
+@override
+void onError(Object error, StackTrace stacktrace){
+    super.onError(error, stacktrace);
+    print('onError $error, $stacktrace);
+}
+```
+
+### Bloc delegate
+
+Handles hooks from **all** blocs. For example if we want to override the ```onError``` for all blocs we can do that just in the bloc delegate instead of doing it manually for each bloc.
+
+We just extend from the ```BlocDelegate``` class and then we override the functions. Additionally, in a BlocDelegate we also get the Bloc as a parameter.
+
+We just need to initialise it **inside main.dart**.
