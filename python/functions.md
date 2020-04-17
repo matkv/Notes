@@ -43,3 +43,11 @@ def plusOne(number):
 The return value **None** is a value of datatype None which is a datatype to describe a value that represents the lack of a value. If our function doesn't have a return statement, the return value defaults to the None type.
 
 There are optional **keyword** arguments that let us set specific options in functions. For example, the ```end``` keyword of the ```print()``` function specifies the character that is added at the end of the value that is printed.
+
+## Global and local scopes
+
+A scope is basically a container of variables. The global scope is **outside** of functions, each function has its own local scope.
+
+* Variables that are **assigned in a function** exist in that local scope. 
+* Variables that are assigned out of all functions exist in the global scope.
+* A variable can't be both local and global.
