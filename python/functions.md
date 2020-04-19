@@ -51,3 +51,17 @@ A scope is basically a container of variables. The global scope is **outside** o
 * Variables that are **assigned in a function** exist in that local scope. 
 * Variables that are assigned out of all functions exist in the global scope.
 * A variable can't be both local and global.
+* A local scope is created whenever a function is called & destroyed when the function returns
+* Global variables **can be accessed from anywhere**, local variables **only within the local scope**.
+* To assign a global variable inside a function we can use the ```global```  keyword.
+
+```python 
+eggs = 'Hi'
+
+def example()
+  global eggs
+  eggs = 'Hello'
+  print(eggs)
+```
+
+```eggs``` in this function will always refer to the **global** variable, so this will print "Hi"
