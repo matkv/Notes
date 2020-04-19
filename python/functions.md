@@ -65,3 +65,27 @@ def example()
 ```
 
 ```eggs``` in this function will always refer to the **global** variable, so this will print "Hi"
+
+## Handling errors with try/except
+
+We can handle errors by using try and except statements.
+
+```python
+def div42by(divideBy):
+    try:
+        return 42 / divideBy
+    except ZeroDivisionError:
+        print('Error: you tried to divide by zero!')
+```
+
+An error that happens inside the try block will cause the except block to execute. We can catch specific exceptions by specifying the exact exception name. 
+
+It is possible to catch all exceptions by just not specifyng a specific type of exception and just using "except:", but this is generally not recommended.
+
+We can also use:
+
+```python
+ except Exception:
+```
+
+The advantage of this over the bare except is that there are a few exceptions that it wont catch, most obviously KeyboardInterrupt and SystemExit.
