@@ -144,3 +144,25 @@ examplelist.index('hello')
 ```
 
 When there are duplicates in a list, the first occurence is returned.
+
+### Adding values to lists with append() and insert()
+
+We can add values to the end of a list using the ```append()``` method and insert values at a specific index using the ```insert()``` function.
+
+```python
+listname.append('newvalue')
+
+listname.insert(2, 'anothernewvalue')
+```
+
+In both cases, the lists are modified *in place*. Non *in-place* methods don't alter their object; instead, they return a copy of that object:
+
+### Removing values from lists with remove()
+
+```python
+listname.remove('somevalue')
+```
+
+If the value doesn't exist, this will throw an error. If the value appears multiple times in a list, the first instance of the value will be removed.
+
+If we want to remove a value at a specific index, for example the index 2, we use ```del listname[2]```.
