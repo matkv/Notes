@@ -166,3 +166,23 @@ listname.remove('somevalue')
 If the value doesn't exist, this will throw an error. If the value appears multiple times in a list, the first instance of the value will be removed.
 
 If we want to remove a value at a specific index, for example the index 2, we use ```del listname[2]```.
+
+### Sorting the values in a list with sort()
+
+We can sort lists of number values or lists of string values using the ```sort()``` method.
+
+```python
+listname = [3,1,5,8]
+
+listname.sort() #sorts the list
+listname.sort(reverse=True) # sorts the list in reverse order
+```
+
+As with the insert() and remove() functions, the sort() function sorts the list in place. We also can't use sort on lists that have both number values *and* string values.
+
+Uppercase letters come before lowercase letters. If we need to sort the values in regular alphabetical order, we need to pass ```str.lower``` as the key argument in the sort() method call:
+
+```python 
+listname = ['a', 'z', 'A', 'Z']
+list.sort(key=str.lower)
+```
