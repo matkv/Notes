@@ -143,3 +143,26 @@ The ```range()``` function returns a value of type ```range```. ```range(10)``` 
 ```range(12,16)``` starts at 12 and goes up to, but not including 16.
 
 We can also call the range function with 3 arguments: the first is the start, the second the end, and the third is a ```step``` argument. The ```step``` argument is the amount that the variable is increased (or decreased if the argument is negative) after each iteration. 
+
+## Intendation
+
+Usually the amount of indentation for a line tells us what block it is in.
+
+An exception to this rule occurs when a list spans over several lines. Python knows that until it sees the ending square bracket, the list is not finished.
+
+```python
+spam = ['apples',
+          'oranges',
+                              'bananas',
+'cats']
+print(spam)
+```
+
+We can also split up a single instruction across multiple lines using the \ line continuation character.
+
+```python
+print('Four thousand and ' + \
+'seven years ago')
+```
+
+This is helpful if we want to rearrange long lines of code to be more readable.
