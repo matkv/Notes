@@ -108,3 +108,46 @@ returns 2
 picnicItems.get('eggs', 0)
 returns 0 #key doesn't exist, fallback value has been used
 ```
+
+#### The setdefault() Method
+
+The first argument that is passed to the method is the key to check for, and the second argument is the value to set for that key if the key does not exist.
+
+If the key does exist, the setdefault method returns the key's value.
+
+```python
+spam = {'name': 'Pooka', 'age': 5}
+spam.setdefault('color', 'black')
+'black' #this is returned because the color key doesn't exist yet
+
+spam
+{'color': 'black', 'age': 5, 'name': 'Pooka'}
+
+spam.setdefault('color', 'white')
+'black' #returns black because the key already exists, the dictionary is not changed.
+```
+
+The setdefault() method is a nice way to ensure that a key exists.
+
+#### Pretty printing
+
+If we import the ```pprint``` module in our program, we will have access to the ```pprint() & pformat()``` functions that will allow us to get a cleaner display of the items in a dictionary than what ```print()``` provides.
+
+The output looks much cleaner, with the keys sorted. This is especially helpful when the dictionary itself contains nested lists or dictionaries.
+
+The ```pformat()``` is useful if we want to get the string value of the "pretty-fied" text instead of displaying it on the screen.
+
+#### Nested dictionaries and lists
+
+Lists are useful to store an ordered series of values. Dictionaries are useful for associating keys with values. Here is an example nested dictionary that contains several guests and what (and how much of it) each guest brought:
+
+```python
+guests = {
+'Alice': {'Apples': 2, 'sandwiches': 4},
+'Bob': {'Toast': 1, 'Apples': 5}
+}
+```
+
+It is a dictionary that contains another dictionary.
+
+Dictionaries are useful because you can map one item (the key) to another (the value), as opposed to lists - which simply contain a series of values in order. Instead of an integer index, dictionaries can have keys of a variety of data types: integers, floats, strings or tuples.
