@@ -31,3 +31,4 @@ Some ideas for projects that I want to work on in the future and topics that I w
 * Try out [Go](https://golang.org/)
 * Command line program which opens markdown files from github repo as PDF
 * Auto crop scanned pictures quickly (manual select) - OpenCV?
+* Program that lets me add blog posts to my github.io blog comfortably by pushing commits to the repo - maybe using GoLang?
