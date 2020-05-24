@@ -2,7 +2,29 @@
 
 [Go programming language tour](https://tour.golang.org/)
 
+[Learn Go with tests](https://quii.gitbook.io/learn-go-with-tests/)
+
 ## Basics
+
+### $GOPATH
+
+By convention, all Go code lives within a single workspace (folder). Go places its files in three directories. In the directory of the `$GOPATH`, there are usually three directories:
+
+* source code is in `scr`
+* package objects are in `pkg`
+* compiled programs are in `bin`
+
+### Go modules
+
+Go 1.11 introduced modules, enabling an alternative worklow which will deprecate the use of `GOPATH` and become the default mode. They enable users to run Go code outside of `GOPATH`.
+
+We can select any directory outside `GOPATH` as the root of our project, and create a new module with the `go mod init` command.
+
+```bash
+go mod init example.com/m/v2
+```
+
+This will create a `go.mod` file. In order for the `go get` command to work (necessary to get packages and run tests), the folder in which we run the `go get` or `go test` commands needs to contain this `go.mod` file.
 
 ### Packages
 
@@ -40,7 +62,7 @@ import "math"
 
 In Go, a name is **exported** if it begins with a capital letter.
 
-When importing a package, we can only refer to its exported names. Any "unexported" names are not accessible from outside the package.
+When importing a package, we can only refer to its exported names. Any "unexported" names are not accessible from outside the package. Exported symbols can be sued by other packages, unexported symbols cannot.
 
 ```go
 func main() {
