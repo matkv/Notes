@@ -174,4 +174,12 @@ fmt.Println(mapvalues["firstvalue"])	//this prints 1
 delete(mapvalues, "secondvalue")	//deletes the value
 ```
 
-Stopped at 6:21 [Learn Go In 12 Minutes](https://www.youtube.com/watch?v=C8LgvuEBraI)
+# Constants
+
+Constants are defined by adding the `const` keyword in front of a variable.
+
+```go
+const example = "Hello"
+```
+
+Generally speaking, using constants can improve perfomance because some instances don't need to be created each time.
