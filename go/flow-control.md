@@ -18,6 +18,15 @@ func main() {
 }
 ```
 
-## For
+## Switch case
 
-Stopped at [https://tour.golang.org/flowcontrol/1](https://tour.golang.org/flowcontrol/1)
+```go
+switch condition {
+    case example1:
+        //do something
+    case example2:
+        //do domething else
+    default:
+        //this happens if none of the other options happened
+}
+```
