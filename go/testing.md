@@ -116,3 +116,14 @@ func TestHello(t *testing.T) {
 * Write enough code to make the test pass
 * Refactor
 
+## Adding an example
+
+```go
+func ExampleAdd() {
+	sum := Add(1, 5)
+	fmt.Println(sum)
+	// Output: 6
+}
+```
+
+By adding an example function to the test file **with** the comment inside the function makes it possible to access it in the documentation by running the `godoc` command. There it will show up under third party.
