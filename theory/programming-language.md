@@ -31,5 +31,8 @@ Strong typing prevents that. An attempt to perform an operation on the wrong typ
 
 ## Generations of programming languages
 
-1. Machine language - Low level of abstraction.
-2. Assembly language - Also low level, 
+1. **First generation:** Machine language - Low level of abstraction (binary code, 1's and 0's), can be exectued **directly by a computers's CPU**, no translator is needed to compile or assemble the language.
+2. **Second generation:** Assembly language - Also low level, a very strong similarity between the instructions in the language and the architecture's machine code instructions - own assembly language which is designed for exactly one specific computer architecture.
+3. **Third generation:** High level languages - higher abstractions, complex compilers, easier to read for humans. Many support object oriented programming. For example, C, C++, C# or Java.
+4. **Fourth generation:** Macro & script languages - consist of statements similar to the human langauge. Tend to be specialized for very specific domains such as database management, mathematical optimization or web development. Examples: Perl, SQL
+5. **Fifth generation:** Languages based on problem-solving using constraints given to the program rather than using an algorithm written by a programmer. They were designed to solve a given problem without a programmer. Mainly used in **artificial intelligence** research. Examples: OPS5 and Mercury.
