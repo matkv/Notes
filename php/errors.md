@@ -16,3 +16,5 @@ $this->connection = new mysqli($this->ip, $this->username, $this->password, $thi
 ```
 
 This will only work if the value is set to ```off``` in the ini file.
+
+In CentOS, the error logs can be found in `/var/log/httpd/`.
