@@ -6,4 +6,10 @@ To enable connections from the network (for example from the host to a VM runnin
 `setsebool httpd_can_network_connect=1`
 ```
 
+Or: 
+
+```
+setsebool -P httpd_can_network_connect 1
+```
+
 PHP errors can be enabled in `etc/php.ini`.
