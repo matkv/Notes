@@ -14,3 +14,5 @@
 [Machine Learning Basics](https://learndigital.withgoogle.com/digitalgarage/course/machine-learning-basics)
 
 [Machine Learning Crash Course](https://developers.google.com/machine-learning/crash-course/ml-intro)
+
+[Go By Example](https://gobyexample.com/)
