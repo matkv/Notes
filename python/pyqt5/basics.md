@@ -1,5 +1,7 @@
 # PyQt5
 
+TUTORIAL: [https://www.learnpyqt.com/](https://www.learnpyqt.com/)
+
 We can create a design in the designer, then save the `.ui` file. When we want to actually use this file with some python code, we have to run the `pyuic5` command.
 
 Let's say we have a ui file called `mainwindow.ui`. We run `pyuic5 -x mainwindow.ui -o mainwindow.py`.
