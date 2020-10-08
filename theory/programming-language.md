@@ -3,11 +3,12 @@
 ## Types of programming languages
 
 * Imperative
-    * Consists of commands for the computer to perform. It uses statements to change a program's state.
+    * Consists of commands for the computer to perform. It uses statements to change a program's state.    
     * Object-oriented languages
-    * Sequences of commands
+    * Sequences of commands that lead to a final result
+    * Usage of statements that change a program's state
 * Declarative
-    * Focuses on *what* the program should do without specifying **how** the program should achieve the result.
+    * Focuses on *what* the program should do without specifying **how** the program should achieve the result. 
     * Functional languages
     * The description of the problem is in the focus
     * Example - SQL

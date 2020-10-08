@@ -17,6 +17,7 @@ WHILE condition DO loop-body        //(kopfgesteuert)
 DO loop-body WHILE condition        //(fußgesteuert)
 REPEAT loop-body UNTIL condition    //(fußgesteuert)
 ```
+
 ## Termination conditions
 
 When working with loops, the **termination condition** decides when a loop will stop.
