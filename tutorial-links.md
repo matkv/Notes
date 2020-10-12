@@ -15,4 +15,11 @@
 
 [Machine Learning Crash Course](https://developers.google.com/machine-learning/crash-course/ml-intro)
 
+## GoLang
+
 [Go By Example](https://gobyexample.com/)
+[Learn Go With Tests](https://quii.gitbook.io/learn-go-with-tests/)
+
+## GitHub
+
+[Self Updating GitHubp Readme](https://simonwillison.net/2020/Jul/10/self-updating-profile-readme/)
