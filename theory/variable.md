@@ -13,9 +13,10 @@ When using variables, for example in functions, we differentiate between **calli
 
 ## Declaring variables
 
-* **Static typing** - the type is bound to the *variable*. Types are checked at **compile time**.
+* **Static typing** - the type is bound to the *variable*. Types are checked at **compile time**. Types can be made **immutable**.
 * **Dynamic typing** - the type is bound to the *value*. Types are checked at **run time**.
 
 
-* **Implicit declaration** - the type is not specified when declaring the variable but is inferred by the value
-* **Weak typing** - the compiler does not enforce a typing discipline. For example `x = "1.5"` (a string) - `x*2` returns 3 anyways. The compiler doesn't throw an error but converts the string to a number. Weak typing can lead to errors more easily, but it also generally makes writing the code easier.
+* **Implicit (weak) typing** - the type is not specified when declaring the variable but is inferred by the value. The compiler does not enforce a typing discipline. For example `x = "1.5"` (a string) - `x*2` returns 3 anyways. The compiler doesn't throw an error but converts the string to a number. Weak typing can lead to errors more easily, but it also generally makes writing the code easier.
+
+* **Explicit (strong) typing** - the type declaration is not assumed, types aren't going to magically transform without explicit instructions to do so -> this might make it more difficult to convert types and work with them, but will yield more predictable results. 

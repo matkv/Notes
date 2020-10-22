@@ -17,7 +17,7 @@ Information is more abstract and is represented by data.
 # Problem solving
 
 1. Problem -> analysing, splitting it up into sub-problems
-2. Model -> coming up with an idea for a solution
+2. Model -> coming up with an idea for a solution and outlining it
 3. Algorithm -> implementing the solution in a programming language
 4. Sourcecode -> the compiler / interpreter translates the source code to machine code
 5. Application -> execution of the program

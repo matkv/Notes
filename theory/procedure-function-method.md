@@ -38,7 +38,7 @@ public void swapContent(ref int a, ref int b)
     a = b;
     b = temp;
 
-    //a and be have also changed outside the function
+    //a and b have also changed outside the function
 }
 ```
 
