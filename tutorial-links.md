@@ -22,4 +22,4 @@
 
 ## GitHub
 
-[Self Updating GitHubp Readme](https://simonwillison.net/2020/Jul/10/self-updating-profile-readme/)
+[Self Updating GitHub Readme](https://simonwillison.net/2020/Jul/10/self-updating-profile-readme/)
